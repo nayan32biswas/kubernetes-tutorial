@@ -9,6 +9,13 @@
 - `kubectl get all` Make sure everything running.
 - `minikube service mongodb-express-service` Assign external IP address
 
+### Start Kubernetes Dashboard
+
+- `minikube dashboard` Enable dashboard.
+- `kubectl get ingress -n kubernetes-dashboard` Get `IP_ADDRESS` address of running ingress.
+- `sudo vi /etc/hosts` Add `<IP_ADDRESS> localhost-dashboard.com` in the end of the file.
+- http://localhost-dashboard.com
+
 **User:** `admin` **Pass:** `pass`
 
 ### Delete configuration
@@ -16,6 +23,12 @@
 - `./scripts/delete.sh`
 
 ## Basic command
+
+### Minikube
+
+- `minikube start`
+- `minikube stop`
+- `minikube addons enable ingress` Add default nginx-ingress. You can enable other implementation.
 
 ### kubectl get
 
@@ -58,3 +71,4 @@
 - `kubectl create namespace custom-namespace`
 - `kubectl delete namespace custom-namespace`
 - `kubectl config set-context --current --namespace=custom-namespace` Set as default namespace.
+- `kubectl get pod -n kube-public` get all pods within the namespace. this command also possible for deployment, service, etc.
