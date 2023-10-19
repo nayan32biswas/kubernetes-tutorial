@@ -2,22 +2,20 @@
 
 ## Configuration
 
-### Start server
+### Start the app
 
 - `minikube start`
 - `kubectl apply -f infra/`
 - `kubectl get all` Make sure everything running.
-- `minikube service mongodb-express-service` Assign external IP address
+- `kubectl get ingress mongodb-ingress` Get `IP_ADDRESS` address of running ingress.
+- `sudo vi /etc/hosts` Add `<IP_ADDRESS> localhost-app.com` in the end of the file.
+- [Visit the app](http://localhost-dashboard.com)
+
+**User:** `admin` **Pass:** `pass`
 
 ### Start Kubernetes Dashboard
 
 - `minikube dashboard` Enable dashboard.
-- `kubectl apply -f kubernetes-dashboard.yaml`
-- `kubectl get ingress -n kubernetes-dashboard` Get `IP_ADDRESS` address of running ingress.
-- `sudo vi /etc/hosts` Add `<IP_ADDRESS> localhost-dashboard.com` in the end of the file.
-- http://localhost-dashboard.com
-
-**User:** `admin` **Pass:** `pass`
 
 ### Delete configuration
 

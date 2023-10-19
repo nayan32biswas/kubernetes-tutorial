@@ -1,17 +1,16 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: kubernetes-ingress
-  namespace: kubernetes-dashboard
+  name: mongodb-ingress
 spec:
   rules:
-    - host: localhost-dashboard.com
+    - host: localhost-app.com
       http:
         paths:
           - pathType: Prefix
             path: "/"
             backend:
               service:
-                name: kubernetes-dashboard
+                name: mongodb-express-service
                 port:
                   number: 80
